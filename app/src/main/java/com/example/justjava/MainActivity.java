@@ -21,38 +21,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * A method that changes the current value of quantityTextView to 3
+     * A method that increments the current value of quantityTextView by 1
      */
     public void increment(View view){
         quantity = quantity + 1;
-        display(quantity);
+        displayQuantity(quantity);
     }
 
     /**
-     * A method that changes the current value of quantityTextView to 1
+     * A method that decrements the current value of quantityTextView by 1
      */
     public void decrement(View view){
         if(quantity>0)
             quantity = quantity - 1;
-        display(quantity);
+        displayQuantity(quantity);
     }
 
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-//        TextView quantityTextView = (TextView) findViewById(R.id.quantity_textView);
-//        int quantity = Integer.parseInt((String)quantityTextView.getText());
-
         displayPrice(quantity);
+        int x = calculatePrice(quantity, 5);
+        TextView priceTextView = (TextView) findViewById(R.id.price_textView);
+        String message = (String) priceTextView.getText();
+        message = message + " Also Rs."+x;
+        priceTextView.setText(message);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int quantity) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_textView);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + quantity);
     }
 
     /**
@@ -64,9 +66,20 @@ public class MainActivity extends AppCompatActivity {
         String message = "Total = $"+cost;
         String greeting = "Thank You!";
         message = message + "\n" + greeting;
-        TextView priceTextView = (TextView) findViewById(R.id.price_textView);
-        priceTextView.setText(message);
+        displayMessage(message);
     }
+
+    /**
+     * This method calculates price of coffees ordered
+     * @param quantity is the no. of cups of coffee ordered
+     * @param rate is the price of one cup of coffee
+     * @return price of all coffees ordered
+     */
+    private int calculatePrice(int quantity, int rate) {
+        int price = quantity * rate;
+        return price;
+    }
+
 
     /**
      * This method displays the given text on the screen.
