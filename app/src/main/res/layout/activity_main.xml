@@ -49,16 +49,16 @@
 
 
     <TextView
-        android:id="@+id/priceHeader_textView"
+        android:id="@+id/orderSummaryHeader_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price:"
+        android:text="ORDER SUMMARY:"
         android:textAllCaps="true"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:id="@+id/price_textView"
+        android:id="@+id/orderSummary_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0.00"
