@@ -2,6 +2,7 @@ package com.example.justjava;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        String message = createOrderSummary(price);
+
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whippedCream_checkBox);
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkBox);
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+        String message = createOrderSummary(price, hasWhippedCream, hasChocolate);
         displayMessage(message);
     }
 
@@ -65,11 +72,15 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method creates the message containing entire order summary and returns it
-     * @param totalPrice of specified no. of coffees
-     * @return message
+     * @param totalPrice
+     * @param addWhippedCream
+     * @param addChocolate
+     * @return
      */
-    private String createOrderSummary(int totalPrice){
+    private String createOrderSummary(int totalPrice, boolean addWhippedCream, boolean addChocolate){
         String message = "Name: Kaptan Kunal" +
+                "\nAdd Whipped Cream? " + addWhippedCream +
+                "\nAdd Chocolate? " + addChocolate +
                 "\nQuantity: " + quantity +
                 "\nTotal: $" + totalPrice +
                 "\nThank You!";
