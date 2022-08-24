@@ -1,5 +1,7 @@
 package com.example.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view){
         if(quantity>=100){
-            Toast toast = Toast.makeText(this, "You cannot order more than 100 coffees", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, getResources().getString(R.string.upperCoffeeLimit), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         if (quantity <=1){
-            Toast toast = Toast.makeText(this, "You cannot order less than 1 coffee", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, getResources().getString(R.string.lowerCoffeeLimit), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -66,7 +68,18 @@ public class MainActivity extends AppCompatActivity {
         // Editable object is returned by getTex() method
 
         String message = createOrderSummary(name, totalPrice, hasWhippedCream, hasChocolate);
-        displayMessage(message);
+
+        String recipientEmailID[] = {"aditya.19206@knit.ac.in"};
+        String emailSubject = "JustJava order for "+name;
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, recipientEmailID);
+        intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     /**
@@ -102,20 +115,12 @@ public class MainActivity extends AppCompatActivity {
      * @return String containing Order Details
      */
     private String createOrderSummary(String name, int totalPrice, boolean addedWhippedCream, boolean addedChocolate){
-        String message = "Name: " + name +
-                "\nAdd Whipped Cream? " + addedWhippedCream +
-                "\nAdd Chocolate? " + addedChocolate +
-                "\nQuantity: " + quantity +
-                "\nTotal: $" + totalPrice +
-                "\nThank You!";
+        String message = getResources().getString(R.string.custName) + name +
+                "\n" + getResources().getString(R.string.quesWhippedCream) + addedWhippedCream +
+                "\n" + getResources().getString(R.string.quesChocolate) + addedChocolate +
+                "\n" + getResources().getString(R.string.quantity) + quantity +
+                "\n" + getResources().getString(R.string.total) + totalPrice +
+                "\n" + getResources().getString(R.string.greeting);
         return message;
-    }
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.orderSummary_textView);
-        orderSummaryTextView.setText(message);
     }
 }

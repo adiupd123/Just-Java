@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Just Java</string>
+    <string name="custName">Nombre:</string>
+    <string name="toppings">Coberturas</string>
+    <string name="whippedCream">Crema batida</string>
+    <string name="chocolate">El Chocolate</string>
+    <string name="quantity">"Cantidad: "</string>
+    <string name="orderSummary">Resumen del pedido:</string>
+    <string name="order">Encargar</string>
+    <string name="upperCoffeeLimit">No puedes pedir más de 100 cafés!</string>
+    <string name="lowerCoffeeLimit">¡No puedes pedir menos de 1 café!</string>
+    <string name="quesWhippedCream">"¿Agregar crema batida? "</string>
+    <string name="quesChocolate">"¿Añadir chocolate? "</string>
+    <string name="total">Total: $</string>
+    <string name="greeting">¡Gracias!</string>
+</resources>
