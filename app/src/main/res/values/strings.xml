@@ -1,17 +1,19 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
     <string name="custName">Name:</string>
     <string name="toppings">Toppings:</string>
     <string name="whippedCream">Whipped Cream</string>
     <string name="chocolate">Chocolate</string>
-    <string name="quantity">"Quantity: "</string>
+    <string name="qty">Quantity:</string>
     <string name="orderSummary">Order Summary:</string>
     <string name="order">Order</string>
     <string name="upperCoffeeLimit">You can\'t order more than 100 coffee!</string>
     <string name="lowerCoffeeLimit">You can\'t order less than 1 coffee!</string>
-    <string name="quesWhippedCream">"Add Whipped Cream? "</string>
-    <string name="quesChocolate">"Add Chocolate? "</string>
-    <string name="total">Total: $</string>
+    <string name="quesWhippedCream">"Add Whipped Cream? <xliff:g id="creamOption" example="true">%b</xliff:g> "</string>
+    <string name="quesChocolate">"Add Chocolate? <xliff:g id="chocoOption" example="true">%b</xliff:g> "</string>
+    <string name="total">Total: <xliff:g id="totalAmt" example="$90">%s</xliff:g></string>
     <string name="greeting">Thank You!</string>
+    <string name="registeredName">Name: <xliff:g id="name" example="Abc">%s</xliff:g></string>
+    <string name="registeredQty">Quantity: <xliff:g id="quant" example="10">%d</xliff:g></string>
 
 </resources>

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
     <string name="custName">Nombre:</string>
     <string name="toppings">Coberturas</string>
     <string name="whippedCream">Crema batida</string>
     <string name="chocolate">El Chocolate</string>
-    <string name="quantity">"Cantidad: "</string>
+    <string name="qty">"Cantidad: "</string>
     <string name="orderSummary">Resumen del pedido:</string>
     <string name="order">Encargar</string>
     <string name="upperCoffeeLimit">No puedes pedir más de 100 cafés!</string>
     <string name="lowerCoffeeLimit">¡No puedes pedir menos de 1 café!</string>
-    <string name="quesWhippedCream">"¿Agregar crema batida? "</string>
-    <string name="quesChocolate">"¿Añadir chocolate? "</string>
-    <string name="total">Total: $</string>
+    <string name="quesWhippedCream">¿Agregar crema batida? <xliff:g id="creamOption" example="true">%b</xliff:g></string>
+    <string name="quesChocolate">"¿Añadir chocolate? <xliff:g id="chocoOption" example="true">%b</xliff:g> "</string>
+    <string name="total">Total: <xliff:g id="totalAmt" example="$90">%s</xliff:g></string>
     <string name="greeting">¡Gracias!</string>
+    <string name="registeredName">Nombre: <xliff:g id="name" example="Abc">%s</xliff:g></string>
+    <string name="registeredQty">Cantidad: <xliff:g id="quantity" example="10">%d</xliff:g></string>
 </resources>

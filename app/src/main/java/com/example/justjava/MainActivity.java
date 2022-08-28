@@ -11,13 +11,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.NumberFormat;
+
 
 /**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 90;
+    int quantity = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,11 +117,11 @@ public class MainActivity extends AppCompatActivity {
      * @return String containing Order Details
      */
     private String createOrderSummary(String name, int totalPrice, boolean addedWhippedCream, boolean addedChocolate){
-        String message = getResources().getString(R.string.custName) + name +
-                "\n" + getResources().getString(R.string.quesWhippedCream) + addedWhippedCream +
-                "\n" + getResources().getString(R.string.quesChocolate) + addedChocolate +
-                "\n" + getResources().getString(R.string.quantity) + quantity +
-                "\n" + getResources().getString(R.string.total) + totalPrice +
+         String message = getResources().getString(R.string.registeredName, name) +
+                "\n" + getResources().getString(R.string.quesWhippedCream, addedWhippedCream) +
+                "\n" + getResources().getString(R.string.quesChocolate,addedChocolate) +
+                "\n" + getResources().getString(R.string.registeredQty, quantity)  +
+                "\n" + getResources().getString(R.string.total, NumberFormat.getCurrencyInstance().format(totalPrice)) +
                 "\n" + getResources().getString(R.string.greeting);
         return message;
     }
